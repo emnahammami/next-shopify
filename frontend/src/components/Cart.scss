@@ -1,0 +1,50 @@
+/* Cart.scss */
+.cart {
+    float: right; /* Float the cart component to the right */
+    background-color: rgb(114, 205, 235);
+    width: 500px;
+    padding: 50px;
+    align-items: center;
+    border-radius: 10px; /* Add border radius for a special look */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add shadow for depth effect */
+  }
+  
+  .cart h2 {
+    margin-bottom: 20px; /* Add some margin below the heading */
+  }
+  
+  .cart-button {
+    margin-right: 5px; /* Add margin between the buttons */
+    background-color: #007bff; /* Set the background color */
+    color: #fff; /* Set the text color */
+    border: none; /* Remove the border */
+    border-radius: 5px; /* Add border radius */
+    padding: 10px 20px; /* Add padding */
+    cursor: pointer; /* Change cursor to pointer */
+    display: inline-flex; /* Display as inline-flex to align items */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    transition: background-color 0.3s; /* Add transition for smooth hover effect */
+  }
+  
+  .cart-button:hover {
+    background-color: #0056b3; /* Darken the background color on hover */
+  }
+  
+  .buy-button {
+    background-color: #28a745; /* Set the background color */
+    color: #fff; /* Set the text color */
+    border: none; /* Remove the border */
+    border-radius: 5px; /* Add border radius */
+    padding: 10px 20px; /* Add padding */
+    cursor: pointer; /* Change cursor to pointer */
+    display: inline-flex; /* Display as inline-flex to align items */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    transition: background-color 0.3s; /* Add transition for smooth hover effect */
+  }
+  
+  .buy-button:hover {
+    background-color: #218838; /* Darken the background color on hover */
+  }
+  

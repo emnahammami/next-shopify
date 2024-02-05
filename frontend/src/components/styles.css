@@ -1,0 +1,8 @@
+/* styles.css */
+.shopping-cart-icon {
+    fill: #007bff; /* Remarque : la couleur ne s'applique pas aux images, mais aux éléments SVG */
+    width: 30px; /* Spécifie la largeur de l'image */
+    height: 24px; /* Spécifie la hauteur de l'image */
+  }
+  
+  
