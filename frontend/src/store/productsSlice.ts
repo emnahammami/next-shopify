@@ -35,7 +35,7 @@ export const createProduct = createAsyncThunk('products/createProduct', async (n
 });
 
 export const updateProduct = createAsyncThunk('products/updateProduct',async (updatedProduct: Product) => {
-  const response = await axios.put(`http://localhost:5000/api/products/${updatedProduct._id}`, {name:updatedProduct.name,description:updatedProduct.description,price:updatedProduct.price});
+  const response = await axios.put(`http://localhost:5000/api/products/${updatedProduct._id}`, {name:updatedProduct.name,description:updatedProduct.description,price:updatedProduct.price,image:updatedProduct.image});
   return response.data;
 });
 

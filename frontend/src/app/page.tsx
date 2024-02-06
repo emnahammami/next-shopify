@@ -8,7 +8,7 @@ import DynamicProducts from '../components/products';
 import "../components/Navigation.scss"
 import "../components/Products.scss";
 import logo from '../assets/flat-shopping-center-twitch-banner_23-2149330484.avif'; // Import your logo image
-
+import Cart from '@/components/Cart';
 const Home: React.FC = () => {
   return (
     <main>
@@ -21,12 +21,15 @@ const Home: React.FC = () => {
             {/* Render links for navigation */}
             <button className='nav'><Link to="/user/products" >User Products</Link></button>
             <button className='nav'><Link to="/admin/products">Admin Products</Link></button>
+            <button className='nav'><Link to="/cart">Shopping cart</Link></button>
+
           </div>
           
           <Routes>
             {/* Define routes */}
             <Route path="/user/products" Component={UserProducts} />
             <Route path="/admin/products" Component={DynamicProducts} />
+            <Route path="/cart" Component={Cart} />
           </Routes>
         </Router>
       </Provider>

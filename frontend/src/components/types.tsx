@@ -12,6 +12,13 @@ export interface Product {
     description: string;
     price: number; image:string
   }
+  const initialNewProduct: Product = {
+    _id: '',
+    name: '',
+    description: '',
+    price: 0,
+    image: ''
+  };
   
   // You can define other types or interfaces here as needed
   

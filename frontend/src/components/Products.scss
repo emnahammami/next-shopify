@@ -5,8 +5,20 @@
   display: flex;
   flex-wrap: wrap; /* Permet aux cartes de passer à la ligne suivante si l'espace est insuffisant */
 }
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.alert {
+  background-color: #4caf50; /* Green background */
+  color: white; /* White text */
+  padding: 15px; /* Padding */
+  margin-bottom: 20px; /* Bottom margin */
+  border-radius: 4px; /* Rounded corners */
+}
 
-.card {
+.card { width: 350px; /* Adjust as needed */
+  margin: 10px;
   flex: 0 0 calc(33.33% - 20px); /* Utilisez 33.33% de largeur pour chaque carte, avec une marge de 20px entre elles */
   margin: 0 10px 20px 0; /* Marge entre chaque carte */
   border: 1px solid #ccc; /* Ajoutez une bordure autour de chaque carte */

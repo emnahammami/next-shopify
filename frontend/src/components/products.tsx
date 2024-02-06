@@ -1,4 +1,3 @@
-// Products.tsx
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../store/store';
@@ -11,7 +10,7 @@ import ShoppingCartIcon from './ShoppingCartIcon';
 import { addToCart } from '@/store/cartSlice';
 import Cart from './Cart';
 import Image from 'next/image';
-const Products: React.FC = () => {
+const products: React.FC = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { products, loading, error } = useSelector((state: RootState) => state.products);
   const [newProduct, setNewProduct] = useState<emptyProduct>({
@@ -35,11 +34,13 @@ const Products: React.FC = () => {
     }
   };
 
-  const handleAddToCart = (product: Product) => {
-    dispatch(addToCart(product)); // Dispatch the addToCart action with the product ID
-  };
-const displaytheshoppingcard=()=>{setSDisplay(true)}
-const diplaytheshoppingcard=()=>{setSDisplay(true)}
+ 
+
+ 
+  
+  
+  
+
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
     setNewProduct((prevProduct) => ({
@@ -47,18 +48,27 @@ const diplaytheshoppingcard=()=>{setSDisplay(true)}
       [name]: value,
     }));
   };
-
+  
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     dispatch(createProduct(newProduct));
-    setNewProduct({ name: '', description: '', price: 0 ,image:''});
+    setNewProduct({ name: '', description: '', price: 0, image: '' });
     setShowForm(false);
   };
+  
 
-  const handleUpdateProduct = (productId: string, updatedProduct: Product) => {
+  const handleUpdateProduct = ( updatedProduct: Product) => {
+    console.log("updated product"+updatedProduct.image)
     dispatch(updateProduct(updatedProduct));
+    setNewProduct({
+      name: '',
+      description: '',
+      price: 0,
+      image:''
+    })
     setShowUpdateForm(null); // Close the update form after submission
   };
+  
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error}</div>;
@@ -101,33 +111,35 @@ const diplaytheshoppingcard=()=>{setSDisplay(true)}
           <button type="submit">Add Product</button>
         </form>
       )}
-
+<div className="cards-container">
       {/* Afficher chaque produit */}
       {products.map((product) => (
         <div key={product._id} className="card">
           <h2>{product.name}</h2>
-          <Image src={product.image?.toString()} alt="Description of the image" width={500} height={300} />
+          <img src={product.image?.toString()} alt="Description of the image" width={100} height={100} />
           <p>{product.description}</p>
           <p>${product.price}</p>
           <button className="deleteButton" onClick={() => handleDeleteProduct(product._id)}>Delete</button>
           <button className="updateButton" onClick={() => setShowUpdateForm(product._id)}>Update</button>
-          <button className="addToCartButton" onClick={() => { handleAddToCart(product); displaytheshoppingcard(); }}>
-            <ShoppingCartIcon /> {/* Display the ShoppingCartIcon component */}
-          </button>          {showUpdateForm === product._id && (
-            <form onSubmit={(event) => {
-              event.preventDefault();
-              handleUpdateProduct(product._id, {
-                _id: product._id,
-                name: newProduct.name || product.name,
-                description: newProduct.description || product.description,
-                price: newProduct.price || product.price,image:newProduct.image
-              });
-            }}>
+                 {showUpdateForm === product._id && (
+          <form
+          onSubmit={(event) => {
+            event.preventDefault();
+            handleUpdateProduct( {
+              _id: product._id, // Ajoutez l'ID du produit existant
+              name: newProduct.name || product.name,
+              description: newProduct.description || product.description,
+              price: newProduct.price || product.price,
+              image: newProduct.image.toString() ||product.image
+            });
+          }}
+        >
+        
               <input
                 type="text"
                 name="name"
                 placeholder="Product name"
-                value={newProduct.name || product.name}
+                value={ newProduct.name||product.name}
                 onChange={handleInputChange}
               />
               <input
@@ -147,7 +159,7 @@ const diplaytheshoppingcard=()=>{setSDisplay(true)}
               type="text"
               name="image"
               placeholder="Product image"
-              value={newProduct.image}
+              value={newProduct.image || product.image}
               onChange={handleInputChange}
             />
               <button type="submit">Update Product</button>
@@ -155,8 +167,8 @@ const diplaytheshoppingcard=()=>{setSDisplay(true)}
           )}
         </div>
       ))}
-    </div>
+    </div></div>
     </div>  );
 };
 
-export default Products;
+export default products;

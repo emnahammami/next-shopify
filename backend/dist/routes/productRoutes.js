@@ -2,7 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const express = require('express');
 const productController_1 = require("../controllers/productController");
+const productControllerImage_1 = require("../controllers/productControllerImage");
 const router = express.Router();
+router.post('/addentry', productControllerImage_1.addEntry);
+router.post('/addentry', productControllerImage_1.getAllEntries);
 router.post('/', productController_1.createProduct);
 router.get('/', productController_1.getProducts);
 router.put('/:id', productController_1.updateProduct);
