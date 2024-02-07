@@ -27,14 +27,14 @@ const Cart: React.FC = () => {
         <div key={item.productId}>
           <p>{item.name}</p>
           <p>Quantity: {item.quantity}</p>
-          <p>Price: ${item.price * item.quantity}</p>
+          <p>Price: TND{item.price * item.quantity}</p>
           {/* Buttons to increment and decrement quantity */}
           <button className="cart-button" onClick={() => handleIncrementQuantity(item.productId)}>+</button>
           <button className="cart-button" onClick={() => handleDecrementQuantity(item.productId)}>-</button>
         </div>
       ))}
       {/* Display total price */}
-      <p>Total: ${totalPrice}</p>
+      <p>Total: TND{totalPrice}</p>
       <button className="buy-button">Buy</button>
     </div>
   );

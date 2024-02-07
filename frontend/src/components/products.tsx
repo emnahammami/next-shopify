@@ -118,7 +118,7 @@ const products: React.FC = () => {
           <h2>{product.name}</h2>
           <img src={product.image?.toString()} alt="Description of the image" width={100} height={100} />
           <p>{product.description}</p>
-          <p>${product.price}</p>
+          <p>{product.price}TND</p>
           <button className="deleteButton" onClick={() => handleDeleteProduct(product._id)}>Delete</button>
           <button className="updateButton" onClick={() => setShowUpdateForm(product._id)}>Update</button>
                  {showUpdateForm === product._id && (
