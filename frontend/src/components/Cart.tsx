@@ -26,6 +26,8 @@ const Cart: React.FC = () => {
       {cartItems.map((item) => (
         <div key={item.productId}>
           <p>{item.name}</p>
+          <img src={item.image?.toString()} alt="Description of the image" width={100} height={100} />
+
           <p>Quantity: {item.quantity}</p>
           <p>Price: TND{item.price * item.quantity}</p>
           {/* Buttons to increment and decrement quantity */}
